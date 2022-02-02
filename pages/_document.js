@@ -10,6 +10,7 @@ class MyDocument extends Document {
             rel="stylesheet"
           />
           <link rel="stylesheet" href="https://rsms.me/inter/inter.css" />
+          <link rel="manifest" href="/manifest.json" />
         </Head>
         <body>
           <Main />
