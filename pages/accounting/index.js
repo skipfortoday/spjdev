@@ -149,7 +149,7 @@ const Accounting = () => {
                     onClick={() => setOpen(false)}
                     ref={cancelButtonRef}
                   >
-                    Validate
+                    Cancel
                   </button>
                   <button
                     type="button"
@@ -217,35 +217,35 @@ const Accounting = () => {
                 <th>1</th>
                 <td>02/Feb/2022</td>
                 <td>SPJ/AUTO/0001</td>
-                <td>On Check Validator</td>
+                <td>On Check Accounting</td>
                 <td>Rizqi Tato</td>
               </tr>
               <tr className="hover" onClick={() => setOpen(true)}>
                 <th>2</th>
                 <td>02/Feb/2022</td>
                 <td>SPJ/AUTO/0002</td>
-                <td>On Check Validator</td>
+                <td>On Check Accounting</td>
                 <td>Rizqi Tato</td>
               </tr>
               <tr className="hover" onClick={() => setOpen(true)}>
                 <th>3</th>
                 <td>02/Feb/2022</td>
                 <td>SPJ/AUTO/0003</td>
-                <td>On Check Validator</td>
+                <td>On Check Accounting</td>
                 <td>Rizqi Tato</td>
               </tr>
               <tr className="hover" onClick={() => setOpen(true)}>
                 <th>4</th>
                 <td>02/Feb/2022</td>
                 <td>SPJ/AUTO/0004</td>
-                <td>On Check Validator</td>
+                <td>On Check Accounting</td>
                 <td>Rizqi Tato</td>
               </tr>
               <tr className="hover" onClick={() => setOpen(true)}>
                 <th>5</th>
                 <td>02/Feb/2022</td>
                 <td>SPJ/AUTO/0005</td>
-                <td>On Check Validator</td>
+                <td>On Check Accounting</td>
                 <td>Rizqi Tato</td>
               </tr>
             </tbody>

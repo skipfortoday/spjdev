@@ -106,7 +106,7 @@ const Validator = () => {
                     <ul className="steps steps-vertical">
                       <li className="step step-primary">On The Way</li>
                       <li className="step step-primary">On Check Validator</li>
-                      <li className="step step-primary">On Check Accounting</li>
+                      <li className="step ">On Check Accounting</li>
                       <li className="step">Completed Check</li>
                     </ul>
                   </div>
@@ -120,7 +120,7 @@ const Validator = () => {
                     onClick={() => setOpen(false)}
                     ref={cancelButtonRef}
                   >
-                    Validate
+                    Close
                   </button>
                   <button
                     type="button"
@@ -128,7 +128,7 @@ const Validator = () => {
                     onClick={() => setOpen(false)}
                     ref={cancelButtonRef}
                   >
-                    Submit
+                    Validate
                   </button>
                 </div>
               </div>
