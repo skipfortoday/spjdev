@@ -6,6 +6,7 @@ import Layout from "../../src/layout";
 
 const Puskesmas = () => {
   const [open, setOpen] = useState(false);
+  const [items, setItems] = useState([]);
   const cancelButtonRef = useRef(null);
   return (
     <>
@@ -47,6 +48,12 @@ const Puskesmas = () => {
             >
               <div className="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-xl sm:w-full">
                 <div className="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
+                  <div className="font-semibold text-xl ">
+                    Belanja Fingerspot ~ Rp. 3.000.000
+                  </div>
+                  <div className="font-semibold mb-2">
+                    Kapitasi ~ Beli Modal
+                  </div>
                   <div className="flex gap-3 mb-2">
                     <div class="overflow-x-auto">
                       <table class="table  table-zebra">
@@ -131,44 +138,103 @@ const Puskesmas = () => {
                     <div className="modal-box">
                       <div className="form-control">
                         <label className="label">
-                          <span className="label-text">SURAT TUGAS</span>
+                          <span className="label-text">Nama</span>
                         </label>
                         <input
                           type="text"
-                          placeholder="Nomor Surat Tugas"
-                          className="input input-bordered"
+                          placeholder="Nama"
+                          className="input input-bordered font-semibold"
                         />
                       </div>
                       <div className="form-control">
                         <label className="label">
-                          <span className="label-text">LPT</span>
+                          <span className="label-text">Sumber Dana</span>
                         </label>
-                        <input
-                          type="text"
-                          placeholder="Nomor LPT"
-                          className="input input-bordered"
-                        />
+                        <select class="select select-bordered  w-full ">
+                          <option disabled="disabled" selected="selected">
+                            Pilih Sumber Dana
+                          </option>
+                          <option>APBN</option>
+                          <option>KAPITASI</option>
+                          <option>BOK</option>
+                        </select>
                       </div>
                       <div className="form-control">
                         <label className="label">
-                          <span className="label-text">KWITANSI</span>
+                          <span className="label-text">Kategori</span>
                         </label>
-                        <input
-                          type="text"
-                          placeholder="Nomor Kwitansi"
-                          className="input input-bordered"
-                        />
+                        <select class="select select-bordered  w-full ">
+                          <option disabled="disabled" selected="selected">
+                            Pilih Kategori
+                          </option>
+                          <option>Perjalanan Dinas</option>
+                          <option>Belanja Barang</option>
+                          <option>Belanja Jasa</option>
+                          <option>Belanja Modal</option>
+                        </select>
                       </div>
                       <div className="form-control">
                         <label className="label">
-                          <span className="label-text">VISUM SPPD</span>
+                          <span className="label-text">Nominal</span>
                         </label>
                         <input
-                          type="text"
-                          placeholder="Nomor Visum"
+                          type="number"
+                          placeholder="Nominal"
                           className="input input-bordered"
                         />
                       </div>
+
+                      <label
+                        className="btn btn-primary btn-sm mt-2 "
+                        onClick={() => {
+                          setItems([...items, { id: "", name: "" }]);
+                        }}
+                      >
+                        Add Item
+                      </label>
+
+                      {items.map((item, index) => (
+                        <div className="flex mt-2 gap-2" key={index}>
+                          <select class="select select-bordered w-2/5">
+                            <option disabled="disabled" selected="selected">
+                              Pilih Item
+                            </option>
+                            <option>SPK</option>
+                            <option>KWT</option>
+                            <option>BAPP</option>
+                            <option>BAST</option>
+                          </select>
+                          <input
+                            type="text"
+                            placeholder="Nomor"
+                            className="input input-bordered font-semibold w-2/5"
+                          />
+                          <div className="flex justify-center align-middle content-center">
+                            <button
+                              class="btn btn-circle btn-sm self-center "
+                              onClick={() => {
+                                let tempArray = [...items];
+                                tempArray.splice(index, 1);
+                                setItems(tempArray);
+                              }}
+                            >
+                              <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                                class="inline-block w-4 h-4 stroke-current"
+                              >
+                                <path
+                                  stroke-linecap="round"
+                                  stroke-linejoin="round"
+                                  stroke-width="2"
+                                  d="M6 18L18 6M6 6l12 12"
+                                ></path>
+                              </svg>
+                            </button>
+                          </div>
+                        </div>
+                      ))}
                       <div className="modal-action">
                         <label for="my-modal-2" className="btn btn-primary">
                           Submit
@@ -191,8 +257,11 @@ const Puskesmas = () => {
                 <th>#</th>
                 <th>Tanggal</th>
                 <th>No SPJ</th>
+                <th>Nama</th>
+                <th>Sumber Dana</th>
+                <th>Kategori</th>
+                <th>Nominal</th>
                 <th>Status</th>
-                <th>Create BY</th>
               </tr>
             </thead>
             <tbody>
@@ -200,36 +269,51 @@ const Puskesmas = () => {
                 <th>1</th>
                 <td>02/Feb/2022</td>
                 <td>SPJ/AUTO/0001</td>
+                <td>Belanja Fingerspot</td>
+                <td>KAPITASI</td>
+                <td>Belanja Modal</td>
+                <td>Rp. 3.000.000</td>
                 <td>On The Way</td>
-                <td>Rizqi Tato</td>
               </tr>
               <tr className="hover" onClick={() => setOpen(true)}>
                 <th>2</th>
                 <td>02/Feb/2022</td>
                 <td>SPJ/AUTO/0002</td>
-                <td>On Check Validator</td>
-                <td>Rizqi Tato</td>
+                <td>Belanja Buku Tulis</td>
+                <td>APBD</td>
+                <td>Belanja Barang</td>
+                <td>Rp. 3.000.000</td>
+                <td>On The Way</td>
               </tr>
               <tr className="hover" onClick={() => setOpen(true)}>
                 <th>3</th>
                 <td>02/Feb/2022</td>
                 <td>SPJ/AUTO/0003</td>
+                <td>Belanja Buku Tulis</td>
+                <td>APBD</td>
+                <td>Belanja Barang</td>
+                <td>Rp. 3.000.000</td>
                 <td>On Check Accounting</td>
-                <td>Rizqi Tato</td>
               </tr>
               <tr className="hover" onClick={() => setOpen(true)}>
                 <th>4</th>
                 <td>02/Feb/2022</td>
                 <td>SPJ/AUTO/0004</td>
+                <td>Belanja Buku Tulis</td>
+                <td>APBD</td>
+                <td>Belanja Barang</td>
+                <td>Rp. 3.000.000</td>
                 <td>Completed Check</td>
-                <td>Rizqi Tato</td>
               </tr>
               <tr className="hover" onClick={() => setOpen(true)}>
                 <th>5</th>
                 <td>02/Feb/2022</td>
                 <td>SPJ/AUTO/0005</td>
+                <td>Belanja Buku Tulis</td>
+                <td>APBD</td>
+                <td>Belanja Barang</td>
+                <td>Rp. 3.000.000</td>
                 <td>Cancel</td>
-                <td>Rizqi Tato</td>
               </tr>
             </tbody>
           </table>

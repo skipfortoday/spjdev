@@ -104,6 +104,21 @@ const Layout = ({ children }) => {
               <a>Accounting</a>
             </Link>
           </li>
+          <li>
+            <Link href="/source">
+              <a>Sumber Dana</a>
+            </Link>
+          </li>
+          <li>
+            <Link href="/category">
+              <a>Kategori</a>
+            </Link>
+          </li>
+          <li>
+            <Link href="/items">
+              <a>Item</a>
+            </Link>
+          </li>
         </ul>
       </div>
     </div>
