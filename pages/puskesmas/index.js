@@ -55,8 +55,8 @@ const Puskesmas = () => {
                     Kapitasi ~ Beli Modal
                   </div>
                   <div className="flex gap-3 mb-2">
-                    <div class="overflow-x-auto">
-                      <table class="table  table-zebra">
+                    <div className="overflow-x-auto">
+                      <table className="table  table-zebra">
                         <tbody>
                           <tr>
                             <th>Tanggal</th>
@@ -150,7 +150,7 @@ const Puskesmas = () => {
                         <label className="label">
                           <span className="label-text">Sumber Dana</span>
                         </label>
-                        <select class="select select-bordered  w-full ">
+                        <select className="select select-bordered  w-full ">
                           <option disabled="disabled" selected="selected">
                             Pilih Sumber Dana
                           </option>
@@ -163,7 +163,7 @@ const Puskesmas = () => {
                         <label className="label">
                           <span className="label-text">Kategori</span>
                         </label>
-                        <select class="select select-bordered  w-full ">
+                        <select className="select select-bordered  w-full ">
                           <option disabled="disabled" selected="selected">
                             Pilih Kategori
                           </option>
@@ -195,7 +195,7 @@ const Puskesmas = () => {
 
                       {items.map((item, index) => (
                         <div className="flex mt-2 gap-2" key={index}>
-                          <select class="select select-bordered w-2/5">
+                          <select className="select select-bordered w-2/5">
                             <option disabled="disabled" selected="selected">
                               Pilih Item
                             </option>
@@ -211,7 +211,7 @@ const Puskesmas = () => {
                           />
                           <div className="flex justify-center align-middle content-center">
                             <button
-                              class="btn btn-circle btn-sm self-center "
+                              className="btn btn-circle btn-sm self-center "
                               onClick={() => {
                                 let tempArray = [...items];
                                 tempArray.splice(index, 1);
@@ -222,7 +222,7 @@ const Puskesmas = () => {
                                 xmlns="http://www.w3.org/2000/svg"
                                 fill="none"
                                 viewBox="0 0 24 24"
-                                class="inline-block w-4 h-4 stroke-current"
+                                className="inline-block w-4 h-4 stroke-current"
                               >
                                 <path
                                   stroke-linecap="round"
