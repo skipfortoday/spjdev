@@ -4,6 +4,7 @@ import React from "react";
 
 const Layout = ({ children }) => {
   const router = useRouter();
+
   return (
     <div className="rounded-lg shadow bg-base-200 drawer drawer-mobile h-screen">
       <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />

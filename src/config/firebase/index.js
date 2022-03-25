@@ -1,17 +1,55 @@
-import firebase from "firebase";
-import "firebase/database";
+// import "firebase/database";
 
-const config = {
-  apiKey: "AIzaSyABetqcPztp0cxDFy9zHSZWJ7BWID6jQNc",
-  authDomain: "fir-user-apps.firebaseapp.com",
+// const config = {
+//   apiKey: "AIzaSyD10cbecAcQa6RavJhkjYJCxLDMAXmRKPw",
+//   authDomain: "wabot-c09d1.firebaseapp.com",
+//   databaseURL:
+//     "https://wabot-c09d1-default-rtdb.asia-southeast1.firebasedatabase.app",
+//   projectId: "wabot-c09d1",
+//   storageBucket: "wabot-c09d1.appspot.com",
+//   messagingSenderId: "716554312528",
+//   appId: "1:716554312528:web:c81a4b039cfbcc09c46a55",
+//   measurementId: "G-8WDG026E3M",
+// };
+// export default !firebase.apps.length
+//   ? firebase.initializeApp(config)
+//   : firebase.app();
+
+import { initializeApp, getApps } from "firebase/app";
+import "firebase/database";
+import {
+  getAuth,
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+  signOut,
+} from "firebase/auth";
+
+const firebaseConfig = {
+  apiKey: "AIzaSyD10cbecAcQa6RavJhkjYJCxLDMAXmRKPw",
+  authDomain: "wabot-c09d1.firebaseapp.com",
   databaseURL:
-    "https://fir-user-apps-default-rtdb.asia-southeast1.firebasedatabase.app",
-  projectId: "fir-user-apps",
-  storageBucket: "fir-user-apps.appspot.com",
-  messagingSenderId: "928627946500",
-  appId: "1:928627946500:web:fb417a00cb4f12314eb151",
-  measurementId: "G-QS39E0SP54",
+    "https://wabot-c09d1-default-rtdb.asia-southeast1.firebasedatabase.app",
+  projectId: "wabot-c09d1",
+  storageBucket: "wabot-c09d1.appspot.com",
+  messagingSenderId: "716554312528",
+  appId: "1:716554312528:web:c81a4b039cfbcc09c46a55",
+  measurementId: "G-8WDG026E3M",
 };
-export default !firebase.apps.length
-  ? firebase.initializeApp(config)
-  : firebase.app();
+
+if (!getApps().length) {
+  initializeApp(firebaseConfig);
+}
+
+export const FirebaseAuth = getAuth();
+
+export const SignUp = async (email, password) => {
+  await createUserWithEmailAndPassword(FirebaseAuth, email, password);
+};
+
+export const SignIn = async (email, password) => {
+  return await signInWithEmailAndPassword(FirebaseAuth, email, password);
+};
+
+export const SignOut = async () => {
+  await signOut(FirebaseAuth);
+};
