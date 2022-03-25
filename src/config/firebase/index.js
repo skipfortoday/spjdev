@@ -1,20 +1,3 @@
-// import "firebase/database";
-
-// const config = {
-//   apiKey: "AIzaSyD10cbecAcQa6RavJhkjYJCxLDMAXmRKPw",
-//   authDomain: "wabot-c09d1.firebaseapp.com",
-//   databaseURL:
-//     "https://wabot-c09d1-default-rtdb.asia-southeast1.firebasedatabase.app",
-//   projectId: "wabot-c09d1",
-//   storageBucket: "wabot-c09d1.appspot.com",
-//   messagingSenderId: "716554312528",
-//   appId: "1:716554312528:web:c81a4b039cfbcc09c46a55",
-//   measurementId: "G-8WDG026E3M",
-// };
-// export default !firebase.apps.length
-//   ? firebase.initializeApp(config)
-//   : firebase.app();
-
 import { initializeApp, getApps } from "firebase/app";
 import "firebase/database";
 import {
@@ -23,6 +6,7 @@ import {
   signInWithEmailAndPassword,
   signOut,
 } from "firebase/auth";
+import { getDatabase } from "firebase/database";
 
 const firebaseConfig = {
   apiKey: "AIzaSyD10cbecAcQa6RavJhkjYJCxLDMAXmRKPw",
@@ -53,3 +37,5 @@ export const SignIn = async (email, password) => {
 export const SignOut = async () => {
   await signOut(FirebaseAuth);
 };
+
+export const database = getDatabase();
